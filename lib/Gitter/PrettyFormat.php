@@ -19,6 +19,7 @@ class PrettyFormat
             throw new \RuntimeException('No data available');
         }
 
+        $output = mb_convert_encoding($output, 'UTF-8', 'UTF-8');
         $data = $this->iteratorToArray(new \SimpleXmlIterator("<data>$output</data>"));
 
         return $data['item'];
